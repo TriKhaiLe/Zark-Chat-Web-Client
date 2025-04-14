@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Private Chat Test</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="chat-wrapper">
+        <!-- Form đăng nhập -->
+        <div id="loginForm" class="login-form">
+            <h3>Login</h3>
+            <input type="email" id="emailInput" placeholder="Enter your email">
+            <input type="password" id="passwordInput" placeholder="Enter your password">
+            <button id="loginButton">Login</button>
+        </div>
+
+        <!-- Chat UI (ẩn đi cho đến khi đăng nhập thành công) -->
+        <div id="chatUI" class="chat-ui" style="display: none;">
+            <div class="chat-container">
+                <div class="chat-sidebar">
+                    <h3>Conversations</h3>
+                    <button id="newChatButton">New Chat</button>
+                    <div id="conversationList" class="conversation-list"></div>
+                </div>
+                <div class="chat-main">
+                    <div class="chat-header">
+                        <h3 id="conversationTitle">Select a conversation</h3>
+                        <div>User ID: <span id="senderId">Not logged in</span></div>
+                    </div>
+                    <div class="chat-messages" id="messagesContainer"></div>
+                    <div class="chat-input">
+                        <input type="text" class="message-input" placeholder="Type a message...">
+                        <button id="sendButton">Send</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal tạo hội thoại -->
+        <div id="createConversationModal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <h3>Create New Conversation</h3>
+                <label for="conversationType">Type:</label>
+                <select id="conversationType">
+                    <option value="Private">Private</option>
+                    <option value="Group">Group</option>
+                </select>
+                <label for="participantIds">Participant IDs (comma-separated):</label>
+                <input type="text" id="participantIds" placeholder="e.g., 2,3,4">
+                <label for="groupName" id="groupNameLabel" style="display: none;">Group Name:</label>
+                <input type="text" id="groupName" placeholder="Enter group name" style="display: none;">
+                <div class="modal-buttons">
+                    <button id="createConversationButton">Create</button>
+                    <button id="cancelConversationButton">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
