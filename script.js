@@ -4,7 +4,7 @@ let senderId = null;
 let currentConversationId = null;
 
 // Biến lưu baseUrl để dễ sửa đổi
-const baseUrl = "https://localhost:7187";
+const baseUrl = "https://zarkchat-fvfgfuhactbbc2bv.southeastasia-01.azurewebsites.net";
 const chatHubUrl = `${baseUrl}/chatHub`;
 const loginApiUrl = `${baseUrl}/api/User/login`;
 const conversationsApiUrl = `${baseUrl}/api/Conversation`;
