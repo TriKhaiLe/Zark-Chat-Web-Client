@@ -22,6 +22,22 @@ const connection = new signalR.HubConnectionBuilder()
     .withAutomaticReconnect()
     .build();
 
+connection.onreconnecting(error => {
+    console.log("Reconnecting to SignalR hub... Error: " + error);
+});
+
+connection.onreconnected(connectionId => {
+    console.log("Reconnected to SignalR hub. Connection ID: " + connectionId);
+});
+
+connection.onclose(error => {
+    console.log("Connection closed. Error: " + error);
+    console.log("Attempting to reconnect...");
+    // Tự động kết nối lại
+    initializeChat();
+});
+    
+
 // Hàm đăng nhập gọi API backend
 async function login(email, password) {
     try {
